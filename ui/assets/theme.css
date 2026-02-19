@@ -483,3 +483,21 @@ button[data-testid="collapsedControl"]:hover {
     color: #7ea6ff;
     margin-top: 2px;
 }
+
+/* ── Hide Streamlit sidebar collapse/hamburger buttons ──────── */
+button[data-testid="collapsedControl"],
+button[kind="header"],
+[data-testid="stSidebarCollapseButton"],
+section[data-testid="stSidebar"] > div > button {
+    display: none !important;
+}
+
+[data-testid="stSidebarCollapsedControl"] {
+    display: none !important;
+}
+
+/* Force sidebar always visible */
+section[data-testid="stSidebar"] {
+    transform: none !important;
+    visibility: visible !important;
+}
