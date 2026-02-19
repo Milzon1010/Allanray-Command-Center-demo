@@ -1,3 +1,11 @@
+import streamlit as st
+
+st.set_page_config(
+    page_title="Allanray Command Center",
+    layout="wide",
+    initial_sidebar_state="expanded",  # 👈 paksa terbuka
+)
+
 import plotly.graph_objects as go
 # app.py — Allanray Teknologi Semesta • Cinema Production Command Center
 # v5: Lighter palette · Balanced 3+4 grid · Export PDF/Excel · Mobile responsive

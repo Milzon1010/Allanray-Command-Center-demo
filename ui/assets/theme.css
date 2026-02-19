@@ -463,3 +463,15 @@ main > div:first-child {
 .kpi-spacer {
   flex: 1;
 }
+/* ==== FORCE SIDEBAR VISIBLE ==== */
+section[data-testid="stSidebar"] {
+    transform: none !important;
+    visibility: visible !important;
+    display: block !important;
+    width: 320px !important;
+}
+
+button[data-testid="collapsedControl"] {
+    display: block !important;
+    opacity: 1 !important;
+}
