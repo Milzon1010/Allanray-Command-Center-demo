@@ -1,32 +1,27 @@
 /* ═══════════════════════════════════════════════════════════════
    ALLANRAY TEKNOLOGI SEMESTA — Cinema Command Center
-   theme.css v4  |  Presentation Edition — Readable Dark Slate
+   theme.css v4.1  |  Sidebar Toggle SAFE (Streamlit Cloud)
 ═══════════════════════════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
 
 /* ── Variables ──────────────────────────────────────────────── */
 :root {
-  /* Lighter dark-slate background — comfortable on projectors */
   --bg0: #0e1828;
   --bg1: #111f34;
   --bg2: #152338;
 
-  /* Panels — noticeably lighter so text pops */
   --panel:    rgba(18, 30, 54, 0.96);
   --panel2:   rgba(22, 36, 62, 0.92);
 
-  /* Strokes — cleaner, higher contrast */
   --stroke:   rgba(255,255,255,0.10);
   --stroke2:  rgba(255,255,255,0.16);
   --stroke3:  rgba(255,255,255,0.24);
 
-  /* Text — bright & clear */
   --text:     #eef3ff;
   --text2:    rgba(210, 225, 255, 0.82);
   --muted:    rgba(170, 195, 240, 0.55);
 
-  /* Brand accents */
   --red:        #ff4444;
   --red-d:      #d42020;
   --red-glow:   rgba(255, 68, 68, 0.40);
@@ -49,7 +44,6 @@
   --teal:       #00d4c8;
   --teal-glow:  rgba(0, 212, 200, 0.30);
 
-  /* Layout */
   --r-sm:  10px;
   --r:     15px;
   --r-lg:  20px;
@@ -86,6 +80,7 @@ div[data-testid="stVerticalBlock"]   { gap: 0.32rem !important; }
 div[data-testid="stHorizontalBlock"] { gap: 0.40rem !important; }
 div[data-testid="column"] > div      { gap: 0.32rem !important; }
 
+/* Keep Streamlit header alive (toggle lives here). Hide menu/footer only. */
 #MainMenu, footer { visibility: hidden; }
 
 /* ── Titlebar ───────────────────────────────────────────────── */
@@ -106,17 +101,13 @@ div[data-testid="column"] > div      { gap: 0.32rem !important; }
   background: linear-gradient(90deg, transparent, var(--red) 25%, var(--cyan) 65%, transparent);
   opacity: 0.80;
 }
-.title-row {
-  display: flex; justify-content: space-between;
-  align-items: center; gap: 16px;
-}
+.title-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .h1 {
   font-family: 'Rajdhani', sans-serif !important;
   font-size: clamp(16px, 1.35vw, 22px);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  /* Light gradient text — readable on projectors */
   background: linear-gradient(90deg, #ffffff 0%, #c8deff 55%, var(--cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -229,7 +220,6 @@ div.stButton > button:hover {
   box-shadow: 0 10px 32px var(--red-glow), 0 4px 10px rgba(0,0,0,0.50) !important;
 }
 
-/* Second button = cyan glass */
 div[data-testid="stHorizontalBlock"] div.stButton:last-child > button {
   background: linear-gradient(135deg, rgba(24,232,255,0.18) 0%, rgba(85,153,255,0.14) 100%) !important;
   color: var(--cyan) !important;
@@ -240,7 +230,6 @@ div[data-testid="stHorizontalBlock"] div.stButton:last-child > button:hover {
   box-shadow: 0 10px 30px var(--cyan-glow), 0 4px 10px rgba(0,0,0,0.50) !important;
 }
 
-/* Export button group styling */
 div.export-btn div.stButton > button {
   background: linear-gradient(135deg, rgba(45,236,160,0.20) 0%, rgba(0,212,200,0.15) 100%) !important;
   color: var(--green) !important;
@@ -395,17 +384,16 @@ div[data-testid="stDataFrame"] { margin: 0 !important; border-radius: var(--r) !
 div[data-testid="stDataFrame"] * { font-family: 'JetBrains Mono', monospace !important; font-size: clamp(9.5px, 0.72vw, 11.5px) !important; }
 
 /* ═══════════════════════════════════════════════════════════════
-   MOBILE LOCK  — viewport meta forces 390px on mobile,
-   layout stays fixed, no overflow
+   MOBILE LOCK
 ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
   .block-container {
-  max-width: 100% !important;
-  padding-top:    0.35rem !important;
-  padding-bottom: 0.20rem !important;
-  padding-left:   0.90rem !important;
-  padding-right:  0.90rem !important;
-}
+    max-width: 100% !important;
+    padding-top:    0.35rem !important;
+    padding-bottom: 0.20rem !important;
+    padding-left:   0.90rem !important;
+    padding-right:  0.90rem !important;
+  }
   div[data-testid="stHorizontalBlock"] { flex-direction: column !important; gap: 0.5rem !important; }
   div[data-testid="column"] { width: 100% !important; flex: 1 1 100% !important; min-width: 0 !important; }
   .h1    { font-size: 15px !important; }
@@ -422,56 +410,30 @@ div[data-testid="stDataFrame"] * { font-family: 'JetBrains Mono', monospace !imp
   .panel { padding: 9px 12px !important; }
 }
 
-
 /* ─────────────────────────────────────────────────────────────
-   SIDEBAR PERMANEN (disable collapse controls)
-   ───────────────────────────────────────────────────────────── */
-button[data-testid="stSidebarCollapseButton"] { display: none !important; }
-div[data-testid="stSidebarCollapsedControl"] { display: none !important; }
+   STREAMLIT TOP CHROME: keep toggle, but reduce clutter safely
+   (Do NOT hide header entirely)
+───────────────────────────────────────────────────────────── */
 
-/* ── REMOVE STREAMLIT TOP EMPTY BAR ───────────────────────── */
-header { 
-  visibility: hidden !important;
-  height: 0px !important;
-}
+/* Hide small "decoration" strip only */
+div[data-testid="stDecoration"] { display: none !important; }
 
-section[data-testid="stToolbar"] {
-  display: none !important;
-  height: 0 !important;
-}
+/* Optional: reduce toolbar footprint (don’t kill it) */
+section[data-testid="stToolbar"] { opacity: 0.0 !important; height: 0 !important; }
 
-div[data-testid="stDecoration"] {
-  display: none !important;
-}
-
-.block-container {
-  padding-top: 0.25rem !important;
-}
-
-/* extra safety */
-main > div:first-child {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
 /* KPI PANEL FULL HEIGHT */
-.kpi-flex {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+.kpi-flex { display: flex; flex-direction: column; height: 100%; }
+.kpi-spacer { flex: 1; }
 
-.kpi-spacer {
-  flex: 1;
-}
-/* ==== FORCE SIDEBAR VISIBLE ==== */
-section[data-testid="stSidebar"] {
-    transform: none !important;
-    visibility: visible !important;
-    display: block !important;
-    width: 320px !important;
-}
-
+/* Ensure collapsed toggle is visible if sidebar collapsed */
 button[data-testid="collapsedControl"] {
-    display: block !important;
-    opacity: 1 !important;
+  display: block !important;
+  opacity: 1 !important;
+  background: rgba(20,30,60,0.6) !important;
+  border: 1px solid rgba(120,160,255,0.3) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(6px);
+}
+button[data-testid="collapsedControl"]:hover {
+  background: rgba(80,120,255,0.25) !important;
 }
