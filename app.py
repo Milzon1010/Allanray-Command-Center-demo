@@ -229,6 +229,18 @@ _sidebar_brand(_b64(Path("ui/assets/logo.png")))
 # ─────────────────────────────────────────────────────────────
 # Sidebar
 # ─────────────────────────────────────────────────────────────
+# --- APP TITLE (VISIBLE IN CANVAS) ---
+st.markdown("""
+<div class="app-title-bar">
+    <div class="app-title-main">
+        ALLANRAY COMMAND CENTER
+    </div>
+    <div class="app-title-sub">
+        Cinema Production • Fleet • Gear • Operations
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
 _sb_section("Simulation")
 seed     = st.sidebar.number_input("Random seed", min_value=1, max_value=9999, value=42)
 n_trucks = st.sidebar.slider("Jumlah Truck", 10, 15, 12)

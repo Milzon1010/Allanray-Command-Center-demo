@@ -437,3 +437,26 @@ button[data-testid="collapsedControl"] {
 button[data-testid="collapsedControl"]:hover {
   background: rgba(80,120,255,0.25) !important;
 }
+.app-title-bar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 14px 18px 10px 18px;
+    background: linear-gradient(180deg, #0b1220 0%, #0b1220ee 70%, #0b122000 100%);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(120,160,255,0.18);
+}
+
+.app-title-main {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    color: #cfe3ff;
+}
+
+.app-title-sub {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #7ea6ff;
+    margin-top: 2px;
+}
