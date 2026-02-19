@@ -80,8 +80,24 @@ div[data-testid="stVerticalBlock"]   { gap: 0.32rem !important; }
 div[data-testid="stHorizontalBlock"] { gap: 0.40rem !important; }
 div[data-testid="column"] > div      { gap: 0.32rem !important; }
 
-/* Keep Streamlit header alive (toggle lives here). Hide menu/footer only. */
+/* ── Hide Streamlit header bar (white bar), menu, footer ─────── */
 #MainMenu, footer { visibility: hidden; }
+header[data-testid="stHeader"] {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+}
+
+/* Remove the gap Streamlit reserves for the header */
+.stApp > header { display: none !important; }
+.stApp [data-testid="stAppViewBlockContainer"] { padding-top: 0 !important; }
+
+/* ── Hide sidebar collapse / hamburger buttons ───────────────── */
+button[data-testid="collapsedControl"],
+[data-testid="stSidebarCollapseButton"],
+[data-testid="stSidebarCollapsedControl"] {
+  display: none !important;
+}
 
 /* ── Titlebar ───────────────────────────────────────────────── */
 .titlebar {
@@ -482,22 +498,4 @@ button[data-testid="collapsedControl"]:hover {
     letter-spacing: 1px;
     color: #7ea6ff;
     margin-top: 2px;
-}
-
-/* ── Hide Streamlit sidebar collapse/hamburger buttons ──────── */
-button[data-testid="collapsedControl"],
-button[kind="header"],
-[data-testid="stSidebarCollapseButton"],
-section[data-testid="stSidebar"] > div > button {
-    display: none !important;
-}
-
-[data-testid="stSidebarCollapsedControl"] {
-    display: none !important;
-}
-
-/* Force sidebar always visible */
-section[data-testid="stSidebar"] {
-    transform: none !important;
-    visibility: visible !important;
 }

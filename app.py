@@ -24,7 +24,7 @@ except Exception:
     st_autorefresh = None
 
 from config import BRAND, PROJECTS, EQUIP_CATEGORIES, PEOPLE_ROLES, WAREHOUSE, SITES
-from ui.theme import inject_theme, header, panel_open, panel_close, alert_card
+from ui.theme import inject_theme, sidebar_toggle, header, panel_open, panel_close, alert_card
 from data.mock_data import (
     seed_everything, make_people, make_trucks, make_inventory,
     make_fuel_tanks, make_transactions, make_alerts,
@@ -215,6 +215,7 @@ st.set_page_config(
 
 
 inject_theme()
+sidebar_toggle()
 _inject_density()
 header(BRAND)
 _sidebar_brand(_b64(Path("ui/assets/logo.png")))
